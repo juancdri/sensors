@@ -3,8 +3,8 @@ const mongoose = require("mongoose")
 const sensorEventSchema = new mongoose.Schema(
     {
        sensorId:{
-        type: mongoose.Schema.Types.ObjectId,
-        ref: "Sensor",
+        type: String,
+        required: true,
        },
         createdAt:{
             type: Date,
@@ -18,6 +18,13 @@ const sensorEventSchema = new mongoose.Schema(
 
     }
 )
+sensorEventSchema.set('toJSON', {
+    transform: (document, returnedObject) =>{
+        returnedObject.id = returnedObject._id
+        delete returnedObject._id
+        delete returnedObject.__v
+    }
+})
 
 const SensorEvent = mongoose.model("SensorEvent", sensorEventSchema)
 
