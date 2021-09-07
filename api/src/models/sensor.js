@@ -30,6 +30,13 @@ const sensorSchema = new Schema(
 
     }
 )
+sensorSchema.set('toJSON', {
+    transform: (document, returnedObject) =>{
+        returnedObject.id = returnedObject._id
+        delete returnedObject._id
+        delete returnedObject.__v
+    }
+})
 
 const Sensor = model("Sensor", sensorSchema)
 
