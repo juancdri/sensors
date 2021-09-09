@@ -1,16 +1,16 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { StyledDiv } from './style';
+import { StyledDiv } from './styled';
 
 export const Home = () => {
 
     return (
-        <div>
+        <StyledDiv>
             <Link to='/sensor' >
                 <button className="boton">Start
                 </button>
             </Link>
-        </div>
+        </StyledDiv>
     )
 }
 export default Home;

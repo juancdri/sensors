@@ -2,7 +2,6 @@ import React, { useEffect } from "react"
 import { useDispatch, useSelector } from 'react-redux'
 import { createSensor, getSensors } from '../../redux/Action/index';
 import { useForm } from 'react-hook-form'
-import { StyledDiv } from './styled';
 
 const SensorForm = () => {
     const dispatch = useDispatch()
@@ -22,7 +21,6 @@ const SensorForm = () => {
 
 
     return (
-        <StyledDiv>
             <form onSubmit={handleSubmit(onSubmit)}>
                 <label>Name</label><input {...register("name", {
                     required: {
@@ -77,7 +75,6 @@ const SensorForm = () => {
                 <p>{errors.maxval?.message}</p>
                 <button className='button' type="submit" >Add Sensor</button>
             </form>
-        </StyledDiv>
     )
 }
 

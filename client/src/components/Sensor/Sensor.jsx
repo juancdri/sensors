@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from 'react-redux'
 import { deleteSensor, getSensors } from '../../redux/Action/index';
 import { StyledTable } from './styled';
+import { Link } from "react-router-dom";
 
 const Sensor = sensor => {
     const dispatch = useDispatch()
@@ -13,7 +14,7 @@ const Sensor = sensor => {
 
     useEffect(() => {
         dispatch(getSensors())
-    }, [message])
+    }, [message, dispatch])
     return (
         <StyledTable>
             <thead>
@@ -28,10 +29,10 @@ const Sensor = sensor => {
             </thead>
             <tbody>
                 <tr key={sensor.id}>
-                    <td>{sensor.name}</td>
+                    <Link to={`/sensorEvents/${sensor.id}`}><td>{sensor.name}</td> </Link>
                     <td>{sensor.id}</td>
                     <td>{sensor.location.latitude} / {sensor.location.longitude}</td>
-                    <td>{sensor.active == "Active" ? "✅" : "❌"}</td>
+                    <td>{sensor.active === "Active" ? "✅" : "❌"}</td>
                     <td>{sensor.minval}</td>
                     <td>{sensor.maxval}</td>
                     <td>

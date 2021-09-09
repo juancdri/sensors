@@ -11,7 +11,7 @@ router.post('/', async (req, res) => {
         }
         const newEvent = await new sensorEventSchema(data)
         newEvent.save()
-        res.send('Event crated')
+        res.send(`Event ${newEvent._id} created`)
     }
     catch (error) {
         res.status(404).send(error)
@@ -19,9 +19,11 @@ router.post('/', async (req, res) => {
 
 })
 router.get('/:id', async (req, res) => {
-const{ id }= req.params
-const allEvents = await sensorEventSchema.find({sensorId:id})
-res.json(allEvents)
+    const { id } = req.params
+    const allEvents = await sensorEventSchema
+        .find({ sensorId: id })
+        .populate('sensorId')
+    res.json(allEvents)
 
 })
 

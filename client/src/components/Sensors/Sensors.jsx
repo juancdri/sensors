@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react"
 import { useDispatch, useSelector } from 'react-redux'
 import { getSensors } from '../../redux/Action/index'
 import Sensor from '../Sensor/Sensor'
-import SensorForm from "../SensorForm/SensorFrom"
+import SensorForm from "../SensorForm/SensorForm"
 import Update from "../Update/Update"
 import { StyledDiv } from './styled'
 
@@ -32,12 +32,11 @@ const Sensors = () => {
             minval: sensor.minval,
             maxval: sensor.maxval
         })
-        console.log(sensor.active)
     }
 
     useEffect(() => {
         dispatch(getSensors())
-    }, [])
+    }, [dispatch])
 
     return (
         <StyledDiv>
