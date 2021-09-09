@@ -12,8 +12,7 @@ const sensorSchema = new Schema(
         }, //latitude,longitude
         active: {
             required: true,
-            type: Boolean,
-            default: false,
+            type: String,
         },
         minval: {
             type: Number,

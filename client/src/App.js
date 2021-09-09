@@ -11,7 +11,6 @@ function App() {
     <Fragment>
       <Route exact path='/' component={Home} />
       {/* <Route path='/sensor' component={Nav} /> */}
-      {/* <Route path='/sensor/:sensorId' component={Detail} /> */}
       <Route exact path='/sensor' component={Sensors} />
     </Fragment>
   );

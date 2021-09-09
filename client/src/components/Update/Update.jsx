@@ -1,28 +1,31 @@
-import React, { useEffect, useState } from "react"
-import { useDispatch, useSelector } from 'react-redux'
-import { createSensor, getSensors } from '../../redux/Action/index';
+import React, { useEffect } from 'react';
+// import { StyledDiv } from './style';
+import { useDispatch, useSelector } from 'react-redux';
+import { updateSensor } from '../../redux/Action';
 import { useForm } from 'react-hook-form'
-import { StyledDiv } from './styled';
 
-const SensorForm = () => {
+const Update = (props) => {
     const dispatch = useDispatch()
-    const { register, formState: { errors }, handleSubmit } = useForm()
-    const message = useSelector((state) => state.message)
+    const { register, formState: { errors }, handleSubmit, setValue } = useForm({ defaultValues: props.currentSensor })
+    setValue('name', props.currentSensor.name)
+    setValue('id', props.currentSensor.id)
+    setValue('active', props.currentSensor.active)
+    setValue('latitude', props.currentSensor.latitude)
+    setValue('longitude', props.currentSensor.longitude)
+    setValue('minval', props.currentSensor.minval)
+    setValue('maxval', props.currentSensor.maxval)
 
     const onSubmit = (data, e) => {
         console.log(data)
-        dispatch(createSensor(data))
-
+        dispatch(updateSensor(data))
         e.target.reset()
+        props.setEdit(false)
     }
 
-    useEffect(() => {
-        dispatch(getSensors())
-    }, [message])
+
 
 
     return (
-        <StyledDiv>
         <form onSubmit={handleSubmit(onSubmit)}>
             <label>Name</label><input {...register("name", {
                 required: {
@@ -75,10 +78,11 @@ const SensorForm = () => {
             })
             } />
             <p>{errors.maxval?.message}</p>
-            <button  className='button' type="submit" >Add Sensor</button>
+            <button className='button' type="submit" >Add Sensor</button>
         </form>
-        </StyledDiv>
+
     )
 }
 
-export default SensorForm
+
+export default Update

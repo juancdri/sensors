@@ -32,11 +32,11 @@ const Sensor = sensor => {
                     <td>{sensor.name}</td>
                     <td>{sensor.id}</td>
                     <td>{sensor.location.latitude} / {sensor.location.longitude}</td>
-                    <td>{sensor.active ? "✅" : "❌"}</td>
+                    <td>{sensor.active == "Active" ? "✅" : "❌"}</td>
                     <td>{sensor.minval}</td>
                     <td>{sensor.maxval}</td>
                     <td>
-                        <button>Edit</button>
+                            <button onClick={()=>{sensor.editSensor(sensor)}}>Edit</button>
                     </td>
                     <td>
                         <button onClick={handleClick}>Delete</button>
