@@ -1,4 +1,4 @@
-const {Schema, model}= require("mongoose")
+const { Schema, model } = require("mongoose")
 
 const sensorSchema = new Schema(
     {
@@ -6,14 +6,10 @@ const sensorSchema = new Schema(
             type: String,
             required: true,
         },
-        latitude: {
-            type: Number,
+        location:{
+            type:Object,
             required: true
-        },
-        longitude: {
-            type: Number,
-            required: true
-        },
+        }, //latitude,longitude
         active: {
             required: true,
             type: Boolean,
@@ -26,12 +22,16 @@ const sensorSchema = new Schema(
         maxval: {
             type: Number,
             required: true
-        }
+        },
+        events:[ {
+            type: Schema.Types.ObjectId,
+            ref: "SensorEvent"
+        }]
 
     }
 )
 sensorSchema.set('toJSON', {
-    transform: (document, returnedObject) =>{
+    transform: (document, returnedObject) => {
         returnedObject.id = returnedObject._id
         delete returnedObject._id
         delete returnedObject.__v

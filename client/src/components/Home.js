@@ -2,11 +2,11 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 // import { StyledDiv } from './style';
 
-const Home = () => {
+export const Home = () => {
 
     return (
         <div>
-            <Link to='/app' >
+            <Link to='/sensor' >
                 <button className="boton">Start
                 </button>
             </Link>

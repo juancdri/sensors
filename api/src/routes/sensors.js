@@ -1,27 +1,26 @@
 const { Router } = require("express")
 const sensorSchema = require("../models/sensor")
 const router = Router();
-//Endpoint to add, remove, modify and list the sensors
+
 router.post('/', async (req, res) => {
     try {
         const { name, latitude, longitude, active, minval, maxval } = req.body;
         const data = {
             name: name,
-            latitude: latitude,
-            longitude: longitude,
+            location: { latitude: latitude, longitude: longitude },
             active: active,
             minval: minval,
             maxval: maxval
         };
         const newSensor = await new sensorSchema(data);
         newSensor.save()
-        res.status(200).send('post Ok');
+        res.status(200).send(newSensor._id);
     } catch (error) {
         res.status(404).send(error)
     }
 })
-router.delete('/', async (req, res) => {
-    const { id } = req.body
+router.delete('/:id', async (req, res) => {
+    const { id } = req.params
     const deletedSensor = await sensorSchema.findByIdAndDelete({
         _id: id
     })
@@ -31,8 +30,7 @@ router.put('/', async (req, res) => {
     const { id, name, latitude, longitude, active, minval, maxval } = req.body
     const update = {
         name: name,
-        latitude: latitude,
-        longitude: longitude,
+        location: { latitude: latitude, longitude: longitude },
         active: active,
         minval: minval,
         maxval: maxval

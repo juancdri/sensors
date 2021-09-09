@@ -1,15 +1,18 @@
-import Socket from '../components/Socket';
 import './App.css';
 import { Route } from 'react-router-dom'
 import { Fragment } from 'react';
-import Home from '../components/Home'
+import  Home from './components/Home'
+import Sensors from './components/Sensors';
+import Nav from './components/Nav'
 
 
 function App() {
-  Socket.emit('connected', 'menssage')
   return (
     <Fragment>
       <Route exact path='/' component={Home} />
+      <Route path='/sensor' component={Nav} />
+      {/* <Route path='/sensor/:sensorId' component={Detail} /> */}
+      <Route exact path='/sensor' component={Sensors} />
     </Fragment>
   );
 }

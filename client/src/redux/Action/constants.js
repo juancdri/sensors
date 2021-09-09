@@ -1,0 +1,7 @@
+export const GET_URL = 'http://localhost:3001/'
+export const GET_SENSORS = 'GET_SENSORS'
+export const CREATE_SENSOR = 'CREATE_SENSOR'
+export const UPDATE_SENSOR = 'UPDATE_SENSOR'
+export const DELETE_SENSOR = 'DELETE_SENSOR'
+export const GET_SENSOR_EVENTS = 'GET_SENSOR_EVENTS'
+export const CREATE_SENSOR_EVENT = 'CREATE_SENSOR_EVENT'

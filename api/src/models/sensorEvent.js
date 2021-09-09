@@ -1,17 +1,17 @@
-const mongoose = require("mongoose")
+const { Schema, model }  = require("mongoose")
 
-const sensorEventSchema = new mongoose.Schema(
+const sensorEventSchema = new Schema(
     {
-       sensorId:{
-        type: String,
-        required: true,
-       },
-        createdAt:{
+        sensorId: {
+            type: Schema.Types.ObjectId,
+            ref: "Sensor",
+        },
+        createdAt: {
             type: Date,
             required: false,
             default: Date.now
         },
-        value:{
+        value: {
             type: Number,
             required: true
         }
@@ -19,13 +19,13 @@ const sensorEventSchema = new mongoose.Schema(
     }
 )
 sensorEventSchema.set('toJSON', {
-    transform: (document, returnedObject) =>{
+    transform: (document, returnedObject) => {
         returnedObject.id = returnedObject._id
         delete returnedObject._id
         delete returnedObject.__v
     }
 })
 
-const SensorEvent = mongoose.model("SensorEvent", sensorEventSchema)
+const SensorEvent = model("SensorEvent", sensorEventSchema)
 
 module.exports = SensorEvent;
