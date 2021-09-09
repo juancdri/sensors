@@ -1,5 +1,4 @@
 import React, { useEffect } from "react";
-import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux'
 import { deleteSensor, getSensors } from '../../redux/Action/index';
 import { StyledTable } from './styled';
@@ -36,7 +35,7 @@ const Sensor = sensor => {
                     <td>{sensor.minval}</td>
                     <td>{sensor.maxval}</td>
                     <td>
-                            <button onClick={()=>{sensor.editSensor(sensor)}}>Edit</button>
+                        <button onClick={() => { sensor.editSensor(sensor) }}>Edit</button>
                     </td>
                     <td>
                         <button onClick={handleClick}>Delete</button>

@@ -22,8 +22,6 @@ const Update = (props) => {
     }
 
 
-
-
     return (
         <form onSubmit={handleSubmit(onSubmit)}>
             <label>Name</label><input {...register("name", {

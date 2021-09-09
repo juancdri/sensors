@@ -23,60 +23,60 @@ const SensorForm = () => {
 
     return (
         <StyledDiv>
-        <form onSubmit={handleSubmit(onSubmit)}>
-            <label>Name</label><input {...register("name", {
-                required: {
-                    value: true,
-                    message: 'Name is required'
-                }
-            })
-            } />
-            <p>{errors.name?.message}</p>
-            <label>Latitude</label><input {...register("latitude", {
-                required: {
-                    value: true,
-                    message: 'Latitude is required'
-                }
-            })
-            } />
-            <p>{errors.latitude?.message}</p>
-            <label>Longitude</label><input {...register("longitude", {
-                required: {
-                    value: true,
-                    message: 'Longitude is required'
-                }
-            })
-            } />
-            <p>{errors.longitude?.message}</p>
-            <label>Active</label><select {...register("active", {
-                required: {
-                    value: true,
-                    message: 'Active is required'
-                }
-            })
-            }>
-                <option value="Active">Active</option>
-                <option value="Inactive">Inactive</option>
-            </select>
-            <p>{errors.active?.message}</p>
-            <label>Minval</label><input {...register("minval", {
-                required: {
-                    value: true,
-                    message: 'Min. value is required'
-                }
-            })
-            } />
-            <p>{errors.minval?.message}</p>
-            <label>Maxval</label><input{...register("maxval", {
-                required: {
-                    value: true,
-                    message: 'Max. value is required'
-                }
-            })
-            } />
-            <p>{errors.maxval?.message}</p>
-            <button  className='button' type="submit" >Add Sensor</button>
-        </form>
+            <form onSubmit={handleSubmit(onSubmit)}>
+                <label>Name</label><input {...register("name", {
+                    required: {
+                        value: true,
+                        message: 'Name is required'
+                    }
+                })
+                } />
+                <p>{errors.name?.message}</p>
+                <label>Latitude</label><input {...register("latitude", {
+                    required: {
+                        value: true,
+                        message: 'Latitude is required'
+                    }
+                })
+                } />
+                <p>{errors.latitude?.message}</p>
+                <label>Longitude</label><input {...register("longitude", {
+                    required: {
+                        value: true,
+                        message: 'Longitude is required'
+                    }
+                })
+                } />
+                <p>{errors.longitude?.message}</p>
+                <label>Active</label><select {...register("active", {
+                    required: {
+                        value: true,
+                        message: 'Active is required'
+                    }
+                })
+                }>
+                    <option value="Active">Active</option>
+                    <option value="Inactive">Inactive</option>
+                </select>
+                <p>{errors.active?.message}</p>
+                <label>Minval</label><input {...register("minval", {
+                    required: {
+                        value: true,
+                        message: 'Min. value is required'
+                    }
+                })
+                } />
+                <p>{errors.minval?.message}</p>
+                <label>Maxval</label><input{...register("maxval", {
+                    required: {
+                        value: true,
+                        message: 'Max. value is required'
+                    }
+                })
+                } />
+                <p>{errors.maxval?.message}</p>
+                <button className='button' type="submit" >Add Sensor</button>
+            </form>
         </StyledDiv>
     )
 }

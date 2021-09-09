@@ -22,7 +22,7 @@ const Sensors = () => {
 
     const editSensor = (sensor) => {
         setEdit(true)
-    
+
         setCurrentSensor({
             id: sensor.id,
             name: sensor.name,
