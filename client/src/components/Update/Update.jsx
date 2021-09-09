@@ -1,6 +1,5 @@
-import React, { useEffect } from 'react';
-// import { StyledDiv } from './style';
-import { useDispatch, useSelector } from 'react-redux';
+import React from 'react';
+import { useDispatch } from 'react-redux';
 import { updateSensor } from '../../redux/Action';
 import { useForm } from 'react-hook-form'
 

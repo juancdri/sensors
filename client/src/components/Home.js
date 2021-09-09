@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-// import { StyledDiv } from './style';
+import { StyledDiv } from './style';
 
 export const Home = () => {
 

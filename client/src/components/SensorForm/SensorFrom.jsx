@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react"
+import React, { useEffect } from "react"
 import { useDispatch, useSelector } from 'react-redux'
 import { createSensor, getSensors } from '../../redux/Action/index';
 import { useForm } from 'react-hook-form'
