@@ -24,7 +24,7 @@ router.delete('/:id', async (req, res) => {
     const deletedSensor = await sensorSchema.findByIdAndDelete({
         _id: id
     })
-    res.send(`Se ha borrado el sensor ${deletedSensor.name}`);
+    res.send(`Se ha borrado el sensor ${deletedSensor._id}`);
 })
 router.put('/', async (req, res) => {
     const { id, name, latitude, longitude, active, minval, maxval } = req.body
@@ -37,7 +37,7 @@ router.put('/', async (req, res) => {
     }
     const sensor = await sensorSchema.findByIdAndUpdate(id, update)
     console.log(sensor)
-    res.send(`El sensor ${sensor.name} se ha modficado exitosamente`)
+    res.send(`El sensor ${sensor._id} se ha modficado exitosamente`)
 
 })
 router.get('/', async (req, res) => {

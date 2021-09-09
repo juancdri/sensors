@@ -1,24 +1,28 @@
 import React, { useEffect, useState } from "react"
 import { useDispatch, useSelector } from 'react-redux'
-import { createSensor, getSensors } from '../redux/Action/index';
+import { createSensor, getSensors } from '../../redux/Action/index';
 import { useForm } from 'react-hook-form'
+import { StyledDiv } from './styled';
 
 const SensorForm = () => {
     const dispatch = useDispatch()
     const { register, formState: { errors }, handleSubmit } = useForm()
     const message = useSelector((state) => state.message)
 
-    const onSubmit = async (data) => {
+    const onSubmit = (data, e) => {
         console.log(data)
         dispatch(createSensor(data))
+
+        e.target.reset()
     }
-    
+
     useEffect(() => {
         dispatch(getSensors())
     }, [message])
 
 
     return (
+        <StyledDiv>
         <form onSubmit={handleSubmit(onSubmit)}>
             <label>Name</label><input {...register("name", {
                 required: {
@@ -71,8 +75,9 @@ const SensorForm = () => {
             })
             } />
             <p>{errors.maxval?.message}</p>
-            <button type="submit" >Add Sensor</button>
+            <button  className='button' type="submit" >Add Sensor</button>
         </form>
+        </StyledDiv>
     )
 }
 
