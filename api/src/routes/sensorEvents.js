@@ -18,12 +18,17 @@ router.post('/', async (req, res) => {
     }
 
 })
-router.get('/:id', async (req, res) => {
+router.get('/:id', async (req, res, next) => {
     const { id } = req.params
-    const allEvents = await sensorEventSchema
-        .find({ sensorId: id })
-        .populate('sensorId')
-    res.json(allEvents)
+    try {
+        const allEvents = await sensorEventSchema
+            .find({ sensorId: id })
+            .populate('sensorId')
+        res.json(allEvents)
+    }
+    catch (error) {
+        next(error)
+    }
 
 })
 
