@@ -4,13 +4,11 @@ const router = Router();
 
 router.post('/', async (req, res) => {
     try {
-        const { name, latitude, longitude, active, minval, maxval } = req.body;
+        const { name, latitude, longitude, active } = req.body;
         const data = {
             name: name,
             location: { latitude: latitude, longitude: longitude },
             active: active,
-            minval: minval,
-            maxval: maxval
         };
         const newSensor = await new sensorSchema(data);
         newSensor.save()

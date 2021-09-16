@@ -56,25 +56,10 @@ const Update = (props) => {
             })
             }>
                 <option value="Active">Active</option>
-                <option value="Inactive">Inactive</option>
+                <option value="0">Inactive</option>
             </select>
             <p>{errors.active?.message}</p>
-            <label>Minval</label><input {...register("minval", {
-                required: {
-                    value: true,
-                    message: 'Min. value is required'
-                }
-            })
-            } />
-            <p>{errors.minval?.message}</p>
-            <label>Maxval</label><input{...register("maxval", {
-                required: {
-                    value: true,
-                    message: 'Max. value is required'
-                }
-            })
-            } />
-            <p>{errors.maxval?.message}</p>
+         
             <button className='button' type="submit" >Add Sensor</button>
         </form>
 

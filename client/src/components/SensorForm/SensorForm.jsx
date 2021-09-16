@@ -14,7 +14,6 @@ const SensorForm = () => {
 
         e.target.reset()
     }
-
     useEffect(() => {
         dispatch(getSensors())
     }, [message])
@@ -54,10 +53,10 @@ const SensorForm = () => {
                 })
                 }>
                     <option value="Active">Active</option>
-                    <option value="Inactive">Inactive</option>
+                    <option value='0'>Inactive</option>
                 </select>
                 <p>{errors.active?.message}</p>
-                <label>Minval</label><input {...register("minval", {
+                {/* <label>Minval</label><input {...register("minval", {
                     required: {
                         value: true,
                         message: 'Min. value is required'
@@ -72,7 +71,7 @@ const SensorForm = () => {
                     }
                 })
                 } />
-                <p>{errors.maxval?.message}</p>
+                <p>{errors.maxval?.message}</p> */}
                 <button className='button' type="submit" >Add Sensor</button>
             </form>
     )

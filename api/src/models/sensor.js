@@ -16,11 +16,11 @@ const sensorSchema = new Schema(
         },
         minval: {
             type: Number,
-            required: true
+            required: false
         },
         maxval: {
             type: Number,
-            required: true
+            required: false
         },
         events:[ {
             type: Schema.Types.ObjectId,
