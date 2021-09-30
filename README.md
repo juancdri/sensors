@@ -1,5 +1,4 @@
-# webee-fs
-
+# Sensor app 
 ## Como inicializar la App
 
 - Para instalar las dependencias correspondientes al proyecto se debe correr el comando 'npm install' en la consola desde las carpetas api y client.
